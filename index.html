@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Career Compass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand"><div class="mark">🧭</div><h1>Career Compass</h1></div>
+    <nav class="navlist" id="navlist"></nav>
+    <div class="sidebar-foot">Guiding students from stream to career.</div>
+  </aside>
+  <main id="main"></main>
+</div>
+<div id="login-screen" class="login-screen" style="display:none"></div>
+
+<!--
+  These are loaded as plain (non-module) scripts, in dependency order,
+  so the page also works by simply double-clicking index.html.
+  Each file still lives separately (see js/ folder) — only the loading
+  method changed, not the file structure.
+-->
+
+<!-- 1. Data -->
+<script src="js/data/navigation.js"></script>
+<script src="js/data/careers.js"></script>
+<script src="js/data/courses.js"></script>
+<script src="js/data/exams.js"></script>
+<script src="js/data/colleges.js"></script>
+<script src="js/data/scholarships.js"></script>
+<script src="js/data/internships.js"></script>
+<script src="js/data/states.js"></script>
+<script src="js/data/config.js"></script>
+
+<!-- 2. Services (use the data above) -->
+<script src="js/services/recommendationService.js"></script>
+<script src="js/services/geoService.js"></script>
+<script src="js/services/deadlineService.js"></script>
+<script src="js/services/authService.js"></script>
+
+<!-- 3. Shared state + small utilities -->
+<script src="js/state/store.js"></script>
+<script src="js/utils/dom.js"></script>
+
+<!-- 4. Components (one per feature/screen) -->
+<script src="js/components/explorer.js"></script>
+<script src="js/components/recommend.js"></script>
+<script src="js/components/home.js"></script>
+<script src="js/components/profile.js"></script>
+<script src="js/components/courses.js"></script>
+<script src="js/components/exams.js"></script>
+<script src="js/components/colleges.js"></script>
+<script src="js/components/compare.js"></script>
+<script src="js/components/path.js"></script>
+<script src="js/components/nearby.js"></script>
+<script src="js/components/deadlines.js"></script>
+<script src="js/components/assistant.js"></script>
+<script src="js/components/skillgap.js"></script>
+<script src="js/components/scholarships.js"></script>
+<script src="js/components/internships.js"></script>
+<script src="js/components/states.js"></script>
+<script src="js/components/login.js"></script>
+
+<!-- 5. Navigation/router -->
+<script src="js/router.js"></script>
+
+<!-- 6. Entry point: wires everything together and starts the app -->
+<script src="js/app.js"></script>
+</body>
+</html>
