@@ -8,7 +8,7 @@ function renderLogin(){
    <div class="login-card">
     <div class="brand" style="border:none;padding:0 0 12px"><div class="mark">🧭</div><h1 style="color:var(--ink)">${APP_NAME}</h1></div>
     <h2 style="font-size:22px">${su?'Create your account':'Welcome back'}</h2>
-    <p class="meta" style="margin:4px 0 16px">${su?'Sign up to get personalised career guidance across India.':'Log in — we will email you a confirmation.'}</p>
+    <p class="meta" style="margin:4px 0 16px">${su?'Sign up to get personalised career guidance across India.':'Log in to continue.'}</p>
     ${su?'<div class="field"><label>Full name</label><input id="a-name" autocomplete="name"></div>':''}
     <div class="field"><label>Email</label><input id="a-email" type="email" autocomplete="email"></div>
     <div class="field"><label>Password</label><input id="a-pass" type="password" onkeydown="if(event.key==='Enter')submitAuth()"></div>
@@ -23,9 +23,7 @@ async function submitAuth(){
   btn.disabled=true; btn.textContent='Please wait…';
   const r = authMode==='signup' ? await Auth.signup(val('a-name'),email,pass) : await Auth.login(email,pass);
   if(!r.ok){ setAuthMsg(r.error,false); btn.disabled=false; btn.textContent=authMode==='signup'?'Sign up':'Log in'; return; }
-  setAuthMsg('Logged in! Sending confirmation email…',true);
-  const m=await Auth.sendMail(r.user);
-  setAuthMsg(m.ok?`✅ Confirmation email sent to ${r.user.email}.`:'✅ Logged in. ⚠️ '+m.reason, m.ok);
-  setTimeout(()=>{ document.getElementById('login-screen').style.display='none'; startApp(); }, m.ok?1200:3500);
+  setAuthMsg('✅ Logged in successfully!',true);
+  setTimeout(()=>{ document.getElementById('login-screen').style.display='none'; startApp(); }, 700);
 }
 function logout(){ Auth.logout(); location.reload(); }
